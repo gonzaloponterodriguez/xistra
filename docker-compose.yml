@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  ignis-ai-engine:
+    build: .
+    container_name: ignis-ai-engine
+    ports:
+      - "8443:8443"
+    environment:
+      - INFLUXDB_URL=http://influxdb:8086
+      - INFLUXDB_TOKEN=ignis_secret_token_123
+      - INFLUXDB_ORG=ignis_org
+      - INFLUXDB_BUCKET=ignis_bucket
+      - BROKER_URL=http://context-broker:1026
+    depends_on:
+      - influxdb
+      - context-broker
+    networks:
+      - ignis-net
+
+  influxdb:
+    image: influxdb:2.7
+    container_name: ignis-influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=ignis_admin_123
+      - DOCKER_INFLUXDB_INIT_ORG=ignis_org
+      - DOCKER_INFLUXDB_INIT_BUCKET=ignis_bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=ignis_secret_token_123
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+    networks:
+      - ignis-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ignis-grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - influxdb
+    networks:
+      - ignis-net
+
+  context-broker:
+    image: fiware/orion-ld:latest
+    container_name: ignis-orion-ld
+    ports:
+      - "1026:1026"
+    command: -dbhost mongo
+    depends_on:
+      - mongo
+    networks:
+      - ignis-net
+
+  mongo:
+    image: mongo:4.4
+    container_name: ignis-mongo
+    command: --nojournal
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - ignis-net
+
+volumes:
+  influxdb-data:
+  grafana-data:
+  mongo-data:
+
+networks:
+  ignis-net:
+    driver: bridge

@@ -1,0 +1,210 @@
+{
+  "_comment": "Ignis Sentinel — Muestra de telemetría JSON del camión de bomberos",
+  "_proyecto": "Horizonte Cero · HPE GreenLake Alliance",
+  "escenarios": [
+    {
+      "_nombre": "Escenario A: Operación Normal",
+      "timestamp": "2026-03-03T18:00:00Z",
+      "truck_id": "IGNIS-001",
+      "hydraulic": {
+        "pump_inlet_pressure_kpa": 350.0,
+        "pump_outlet_pressure_kpa": 1500.0,
+        "flow_rate_lpm": 1100.0,
+        "tank_level_liters": 7800.0,
+        "pump_rpm": 2400.0,
+        "bearing_temp_celsius": 58.0,
+        "fluid_temp_celsius": 20.0,
+        "acoustic_freq_hz": 45.0,
+        "foam_level_percent": 100.0,
+        "valve_states": {"V1": "OPEN", "V2": "OPEN", "V3": "CLOSED"}
+      },
+      "mechanical": {
+        "engine_temp_celsius": 90.0,
+        "fuel_level_liters": 400.0,
+        "fuel_consumption_lph": 52.0,
+        "brake_temp_celsius": 120.0,
+        "engine_rpm": 2400.0,
+        "vehicle_speed_kmh": 0.0,
+        "gross_weight_kg": 18500.0,
+        "odometer_km": 47832.0
+      },
+      "gps": {
+        "latitude": 43.3780,
+        "longitude": -8.3950,
+        "altitude_m": 45.0,
+        "heading_degrees": 90.0,
+        "speed_kmh": 0.0,
+        "timestamp": "2026-03-03T18:00:00Z",
+        "fix_quality": 4
+      },
+      "environment": {
+        "ambient_temp_celsius": 22.0,
+        "humidity_percent": 55.0,
+        "wind_speed_ms": 4.0,
+        "wind_direction_degrees": 180.0,
+        "co_ppm": 8.0,
+        "co2_ppm": 420.0,
+        "hcn_ppm": 0.0,
+        "thermal_camera_hotspot_celsius": 450.0
+      },
+      "can_bus": []
+    },
+    {
+      "_nombre": "Escenario B: Riesgo Cavitación Crítico (T=40°C, P_entrada baja)",
+      "timestamp": "2026-03-03T18:11:43Z",
+      "truck_id": "IGNIS-001",
+      "hydraulic": {
+        "pump_inlet_pressure_kpa": 2.0,
+        "pump_outlet_pressure_kpa": 1500.0,
+        "flow_rate_lpm": 1200.0,
+        "tank_level_liters": 6500.0,
+        "pump_rpm": 2800.0,
+        "bearing_temp_celsius": 78.0,
+        "fluid_temp_celsius": 42.0,
+        "acoustic_freq_hz": 720.0,
+        "foam_level_percent": 85.0,
+        "valve_states": {"V1": "OPEN", "V2": "OPEN", "V3": "CLOSED"}
+      },
+      "mechanical": {
+        "engine_temp_celsius": 98.0,
+        "fuel_level_liters": 320.0,
+        "fuel_consumption_lph": 55.0,
+        "brake_temp_celsius": 180.0,
+        "engine_rpm": 2500.0,
+        "vehicle_speed_kmh": 0.0,
+        "gross_weight_kg": 18500.0,
+        "odometer_km": 47832.0
+      },
+      "gps": {
+        "latitude": 43.3780,
+        "longitude": -8.3950,
+        "altitude_m": 45.0,
+        "heading_degrees": 90.0,
+        "speed_kmh": 0.0,
+        "timestamp": "2026-03-03T18:11:43Z",
+        "fix_quality": 4
+      },
+      "environment": {
+        "ambient_temp_celsius": 40.0,
+        "humidity_percent": 15.0,
+        "wind_speed_ms": 8.5,
+        "wind_direction_degrees": 270.0,
+        "co_ppm": 450.0,
+        "co2_ppm": 12000.0,
+        "hcn_ppm": 8.0,
+        "thermal_camera_hotspot_celsius": 680.0
+      },
+      "can_bus": []
+    },
+    {
+      "_nombre": "Escenario C: Ataque La Sombra (CAN comprometido + Manipulación combustible + Desvío GPS)",
+      "timestamp": "2026-03-03T18:15:00Z",
+      "truck_id": "IGNIS-001",
+      "hydraulic": {
+        "pump_inlet_pressure_kpa": 350.0,
+        "pump_outlet_pressure_kpa": 1500.0,
+        "flow_rate_lpm": 900.0,
+        "tank_level_liters": 5200.0,
+        "pump_rpm": 2200.0,
+        "bearing_temp_celsius": 65.0,
+        "fluid_temp_celsius": 22.0,
+        "acoustic_freq_hz": 50.0,
+        "foam_level_percent": 90.0,
+        "valve_states": {"V1": "OPEN", "V2": "CLOSED"}
+      },
+      "mechanical": {
+        "engine_temp_celsius": 95.0,
+        "fuel_level_liters": 280.0,
+        "fuel_consumption_lph": 8.0,
+        "_nota": " MANIPULADO: debería ser ~60 L/h con RPM=2800",
+        "brake_temp_celsius": 150.0,
+        "engine_rpm": 2800.0,
+        "vehicle_speed_kmh": 65.0,
+        "gross_weight_kg": 19000.0,
+        "odometer_km": 47890.0
+      },
+      "gps": {
+        "latitude": 43.3900,
+        "longitude": -8.4500,
+        "_nota": " DESVIADO: ~1.5 km fuera de ruta planificada",
+        "altitude_m": 60.0,
+        "heading_degrees": 270.0,
+        "speed_kmh": 65.0,
+        "timestamp": "2026-03-03T18:15:00Z",
+        "fix_quality": 1
+      },
+      "environment": {
+        "ambient_temp_celsius": 25.0,
+        "humidity_percent": 60.0,
+        "wind_speed_ms": 3.0,
+        "wind_direction_degrees": 180.0,
+        "co_ppm": 5.0,
+        "co2_ppm": 400.0,
+        "hcn_ppm": 0.0,
+        "thermal_camera_hotspot_celsius": 0.0
+      },
+      "can_bus": [
+        {
+          "node_id": "0x7E8",
+          "message_id": "0x123",
+          "payload": "DEADBEEF01020304",
+          "_nota": " HMAC incorrecto  intento de inyección en CAN bus",
+          "sequence_counter": 45,
+          "hmac_signature": "FIRMA_INVALIDA_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "timestamp": "2026-03-03T18:15:00Z"
+        }
+      ]
+    },
+    {
+      "_nombre": "Escenario D: Sobrecarga Térmica Motor + Gases Tóxicos Elevados",
+      "timestamp": "2026-03-03T18:30:00Z",
+      "truck_id": "IGNIS-001",
+      "hydraulic": {
+        "pump_inlet_pressure_kpa": 300.0,
+        "pump_outlet_pressure_kpa": 1400.0,
+        "flow_rate_lpm": 1000.0,
+        "tank_level_liters": 3200.0,
+        "pump_rpm": 2600.0,
+        "bearing_temp_celsius": 72.0,
+        "fluid_temp_celsius": 35.0,
+        "acoustic_freq_hz": 200.0,
+        "foam_level_percent": 40.0,
+        "valve_states": {"V1": "OPEN", "V2": "OPEN", "V3": "OPEN"}
+      },
+      "mechanical": {
+        "engine_temp_celsius": 128.0,
+        "_nota": " TEMPERATURA CRÍTICA > 120°C",
+        "fuel_level_liters": 85.0,
+        "fuel_consumption_lph": 58.0,
+        "brake_temp_celsius": 420.0,
+        "_nota_frenos": " Frenos por encima del umbral de alerta",
+        "engine_rpm": 3000.0,
+        "vehicle_speed_kmh": 0.0,
+        "gross_weight_kg": 18000.0,
+        "odometer_km": 47950.0
+      },
+      "gps": {
+        "latitude": 43.3780,
+        "longitude": -8.3950,
+        "altitude_m": 45.0,
+        "heading_degrees": 0.0,
+        "speed_kmh": 0.0,
+        "timestamp": "2026-03-03T18:30:00Z",
+        "fix_quality": 4
+      },
+      "environment": {
+        "ambient_temp_celsius": 45.0,
+        "humidity_percent": 8.0,
+        "wind_speed_ms": 12.0,
+        "wind_direction_degrees": 315.0,
+        "co_ppm": 850.0,
+        "_nota_co": " CO > 800ppm: Peligro inmediato para la vida (IDLH)",
+        "co2_ppm": 25000.0,
+        "hcn_ppm": 22.0,
+        "_nota_hcn": " HCN > 10ppm: Tóxico",
+        "thermal_camera_hotspot_celsius": 920.0
+      },
+      "can_bus": []
+    }
+  ]
+}
