@@ -1,12 +1,13 @@
 <div align="center">
   <h1> Ignis Sentinel</h1>
   <p><b>Gemelo Digital de Camión de Bomberos de Alta Capacidad</b></p>
+  <p><i>Proyecto desarrollado para la Fase 2 del Tech Challenge de HPECDS</i></p>
 </div>
 
 ---
 
 ## Resumen Ejecutivo
-**Ignis Sentinel** es un Sistema de Gemelo Digital avanzado diseñado para monitorizar, simular y proteger de forma autónoma vehículos pesados de extinción de incendios. El sistema procesa en tiempo real datos de cuatro capas críticas del vehículo y está dotado de múltiples sistemas de Inteligencia Artificial en el *Edge* para la toma rápida de decisiones. Destaca por su alta resistencia a ciberataques, particularmente dirigidos por adversarios avanzados como el grupo terrorista conocido como "La Sombra".
+**Ignis Sentinel** es un Sistema de Gemelo Digital avanzado diseñado para monitorizar, simular y proteger de forma autónoma vehículos pesados de extinción de incendios. Desarrollado como propuesta para la **Fase 2 del Tech Challenge de HPECDS**, el sistema procesa en tiempo real datos de cuatro capas críticas del vehículo y está dotado de múltiples sistemas de Inteligencia Artificial en el *Edge* para la toma rápida de decisiones. Destaca por su alta resistencia a ciberataques, particularmente dirigidos por adversarios avanzados como el grupo terrorista conocido como "La Sombra".
 
 ### Módulos Principales
 * **Motor Base (FireTruckTwin)**: Modelado físico en tiempo real de hidráulica, cinemática, biometría y desgaste térmico.
